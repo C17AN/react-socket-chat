@@ -7,7 +7,7 @@ const ChatInput = ({ userName, socket }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    socket.emit("send", {
+    socket.emit("onSend", {
       userName: userName ? userName : localStorage.getItem("userName"),
       msg: chatMessage,
       timeStamp: new Date().toLocaleTimeString(),

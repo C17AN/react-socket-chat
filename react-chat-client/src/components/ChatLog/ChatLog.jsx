@@ -5,7 +5,7 @@ const ChatLog = ({ socket }) => {
 
   useEffect(() => {
     // messsgeItem : {msg: String, name: String, timeStamp: String}
-    socket.on("receive", (messageItem) => {
+    socket.on("onReceive", (messageItem) => {
       setMsgList((msgList) => [...msgList, messageItem]);
       console.log(messageItem);
     });

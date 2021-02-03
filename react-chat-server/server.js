@@ -19,8 +19,8 @@ io.on("connection", (socket) => {
     io.to(room).emit("onConnect", `${user} 님이 입장했습니다.`);
     // send : 클라이언트가 메시지 보내는 이벤트
     // item: {name: String, msg: String, timeStamp: String}
-    socket.on("send", (messageItem) => {
-      io.sockets.in(room).emit("receive", messageItem);
+    socket.on("onSend", (messageItem) => {
+      io.to(room).emit("onReceive", messageItem);
     });
 
     socket.on("disconnect", () => {
@@ -29,7 +29,5 @@ io.on("connection", (socket) => {
     });
   });
 });
-
-io.on("sendMessage", (socket) => {});
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
