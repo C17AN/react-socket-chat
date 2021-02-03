@@ -1,0 +1,14 @@
+.ChatInput-container {
+  position: absolute;
+  bottom: 0rem;
+  width: 100%;
+}
+
+.ChatInput-form {
+  display: flex;
+}
+
+.ChatInput-form input {
+  flex: 1;
+  height: 2rem;
+}
