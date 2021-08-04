@@ -10,7 +10,14 @@ app.use(cors());
 
 const server = http.createServer(app);
 // socketio 생성후 서버 인스턴스 사용
-const io = socketIO(server);
+const io = socketIO(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["*"],
+    credentials: true,
+  },
+});
 
 io.on("connection", (socket) => {
   // join : 채팅 참여 이벤트
